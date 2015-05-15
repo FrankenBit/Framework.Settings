@@ -1,6 +1,7 @@
 bin/
 obj/
 /packages/
+/*.cache
 /*.suo
 /*.user
-/TestResult.xml
+TestResult.xml

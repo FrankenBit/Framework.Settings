@@ -65,7 +65,7 @@ namespace FrankenBit.Framework.Settings
         public object Value
         {
             [DebuggerStepThrough]
-            get { return _property.GetValue( _settings ); }
+            get { return _property.GetValue( _settings, null ); }
             [DebuggerStepThrough]
             set
             {
@@ -76,7 +76,7 @@ namespace FrankenBit.Framework.Settings
                         value = Convert.ChangeType( value, Type );
                     }
 
-                    _property.SetValue( _settings, value );
+                    _property.SetValue( _settings, value, null );
                 }
                 catch ( Exception e )
                 {

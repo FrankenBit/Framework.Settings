@@ -1,4 +1,4 @@
 language: csharp
 solution: FrankenBit.Framework.Settings.sln
 script:
-  - xbuild FrankenBit.Framework.Settings/FrankenBit.Framework.Settings.csproj -t:CodeContractRewrite
+  - xbuild FrankenBit.Framework.Settings/FrankenBit.Framework.Settings.csproj /t:CodeContractRewrite

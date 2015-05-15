@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
-using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
 
@@ -29,7 +28,7 @@ namespace FrankenBit.Framework.Settings
         private static string GetAttribute<T>( [NotNull] Assembly assembly, [NotNull] Func<T, string> extract )
             where T : Attribute
         {
-            T attribute = assembly.GetCustomAttributes( typeof( T ), false ).Cast<T>().FirstOrDefault();
+            var attribute = assembly.GetCustomAttribute<T>();
             return attribute != null ? extract( attribute ) : string.Empty;
         }
     }

@@ -2,9 +2,12 @@
 <Project ToolsVersion="4.0" DefaultTargets="test" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <NUnitVersion>2.6.4</NUnitVersion>
+    <NUnitConsole>$(SolutionDir)packages\NUnit.Runners.$(NUnitVersion)\tools\nunit-console.exe</NUnitConsole>
+    <NUnitCommand>$(NUnitConsole)</NUnitCommand>
+    <NUnitCommand Condition="'$(OS)' != 'Windows_NT'">mono $(NUnitConsole)</NUnitCommand>
   </PropertyGroup>
   <Target Name="test">
-    <Exec Command="$(SolutionDir)packages\NUnit.Runners.$(NUnitVersion)\tools\nunit-console.exe $(TargetPath) /framework=$(TargetFrameworkVersion) /nologo" />
+    <Exec Command="$(NUnitCommand) $(TargetPath) /framework=$(TargetFrameworkVersion) /nologo" />
   </Target>
   <Target Name="AfterBuild" DependsOnTargets="test" />
 </Project>

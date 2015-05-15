@@ -33,7 +33,7 @@ namespace FrankenBit.Framework.Settings
                 writer.WriteStartElement( SettingsXml.SettingsKey );
 
                 IEnumerable<IGrouping<string, Setting>> groups =
-                    SettingsScanner.Scan( settings ).GroupBy( s => s.DeclaringType );
+                    Settings.Scan( settings ).GroupBy( s => s.DeclaringType );
 
                 foreach ( IGrouping<string, Setting> group in groups )
                 {

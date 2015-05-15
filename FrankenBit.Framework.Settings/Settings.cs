@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using JetBrains.Annotations;
 using NLog;
 
@@ -15,7 +17,7 @@ namespace FrankenBit.Framework.Settings
 
         protected Settings()
         {
-            _settings = SettingsScanner.Scan( this ).ToArray();
+            _settings = Scan( this ).ToArray();
         }
 
         protected Settings( [NotNull] string path )
@@ -82,6 +84,19 @@ namespace FrankenBit.Framework.Settings
         public void SaveAs( [NotNull] string path )
         {
             using ( Stream output = new FileStream( path, FileMode.Truncate ) ) SettingsWriter.Write( output, this );
+        }
+
+        [NotNull]
+        internal static IEnumerable<Setting> Scan( [NotNull] object instance )
+        {
+            Contract.Requires<ArgumentNullException>( instance != null );
+
+            const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public;
+            Type settingsType = typeof( Settings );
+
+            return instance.GetType().GetProperties( flags )
+                .Where( p => p.CanWrite && p.DeclaringType != settingsType )
+                .Select( p => new Setting( instance, p ) );
         }
     }
 }

@@ -135,7 +135,6 @@
     <Compile Include="SettingInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SettingsReader.cs" />
-    <Compile Include="SettingsScanner.cs" />
     <Compile Include="SettingsWriter.cs" />
     <Compile Include="SettingsXml.cs" />
   </ItemGroup>

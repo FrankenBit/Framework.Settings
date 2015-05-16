@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle( "FrankenBit Framework - Settings" )]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription( "Convention-based runtime-modificable user and application settings" )]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany( "FrankenBit" )]
 [assembly: AssemblyProduct( "FrankenBit Framework" )]

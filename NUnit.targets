@@ -7,7 +7,7 @@
     <NUnitCommand Condition="'$(OS)' != 'Windows_NT'">mono $(NUnitConsole)</NUnitCommand>
   </PropertyGroup>
   <Target Name="test">
-    <Exec Command="$(NUnitCommand) $(TargetPath)" />
+    <Exec Command="$(NUnitCommand) $(TargetPath)" WorkingDirectory="$(OutDir)" />
   </Target>
   <Target Name="AfterBuild" DependsOnTargets="test" />
 </Project>

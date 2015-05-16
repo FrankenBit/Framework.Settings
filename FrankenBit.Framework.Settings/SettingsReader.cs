@@ -49,7 +49,7 @@ namespace FrankenBit.Framework.Settings
 
             if ( !reader.ReadToFollowing( SettingsXml.SettingsKey ) ) return;
 
-            List<Setting> settings = Settings.Scan( settingsInstance ).ToList();
+            List<Setting> settings = Setting.Scan( settingsInstance ).ToList();
 
             while ( reader.ReadToFollowing( SettingsXml.GroupKey ) )
             {

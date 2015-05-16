@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
+using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
 using NLog;
@@ -85,6 +87,19 @@ namespace FrankenBit.Framework.Settings
                 }
             }
         }
+
+		[NotNull]
+		public static IEnumerable<Setting> Scan( [NotNull] object instance )
+		{
+			Contract.Requires( instance != null );
+
+			const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public;
+			Type settingsType = typeof( Settings );
+
+			return instance.GetType().GetProperties( flags )
+				.Where( p => p.CanWrite && p.DeclaringType != settingsType )
+				.Select( p => new Setting( instance, p ) );
+		}
 
         public void Reload()
         {

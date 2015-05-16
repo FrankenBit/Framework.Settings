@@ -3,5 +3,5 @@ obj/
 /packages/
 /*.cache
 /*.suo
-/*.user
+/*.user*
 TestResult.xml

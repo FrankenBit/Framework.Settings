@@ -92,6 +92,7 @@ namespace FrankenBit.Framework.Settings
 		public static IEnumerable<Setting> Scan( [NotNull] object instance )
 		{
 			Contract.Requires( instance != null );
+			Contract.Ensures( Contract.Result<IEnumerable<Setting>>() != null );
 
 			const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public;
 			Type settingsType = typeof( Settings );

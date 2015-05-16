@@ -11,7 +11,7 @@
     <copyright>$copyright$</copyright>
     <projectUrl>https://github.com/swalex/FrankenBit.Framework.Settings</projectUrl>
     <licenseUrl>https://github.com/swalex/FrankenBit.Framework.Settings/blob/master/LICENSE</licenseUrl>
-    <iconUrl>https://github.com/swalex/FrankenBit.Framework.Settings/blob/master/FrankenBit.Framework.Settings/Settings.ico</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/swalex/FrankenBit.Framework.Settings/master/FrankenBit.Framework.Settings/Settings.ico</iconUrl>
     <tags>Application User Editable Modificable Settings Configuration</tags>
   </metadata>
 </package>
